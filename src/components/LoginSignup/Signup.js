@@ -27,9 +27,10 @@ const Signup = () => {
         email: '',
         password: '',
         confirmPassword: '',
-    });
+    })
 
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const passwordRegex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
 
     const handleChange = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value })
@@ -39,21 +40,21 @@ const Signup = () => {
         event.preventDefault()
 
         if (formData.password !== formData.confirmPassword) {
-            toast.error('Passwords do not match');
+            toast.error('Passwords do not match')
         } else if (!passwordRegex.test(formData.password)) {
             toast.error(
                 'Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'
-            );
+            )
         } else {
             try {
-                const response = await axios.post(`${URL}/signup`, formData);
-                const { token } = response.data;
+                const response = await axios.post(`${URL}/signup`, formData)
+                const { token } = response.data
 
                 if (token) {
-                    localStorage.setItem('authToken', token);
-                    localStorage.setItem('auth', 'true');
-                    toast.success('Signup successful!');
-                    navigate('/dashboard');
+                    localStorage.setItem('authToken', token)
+                    localStorage.setItem('auth', 'true')
+                    toast.success('Signup successful!')
+                    navigate('/dashboard')
                 }
             } catch (e) {
                 toast.error('Something went wrong')
