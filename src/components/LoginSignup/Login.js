@@ -1,57 +1,60 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import {
     Form,
     FormGroup,
     Label,
     Input,
-    Navbar,
     Button,
     Card,
     CardBody,
     CardHeader,
     CardText,
-} from 'reactstrap'
-import axios from 'axios'
-import Navv from '../Navv'
-import Footer from '../Footer'
-import { URL } from '../../global'
-import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
+} from 'reactstrap';
+import axios from 'axios';
+import Navv from '../Navv';
+import Footer from '../Footer';
+import { URL } from '../../global';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 /**
- * This component displays the Login Page
+ * This component displays the Login Page with added JWT authentication.
  */
 const Login = () => {
-    const handleChange = (event) => {
-        setFormData({ ...formData, [event.target.name]: event.target.value })
-    }
-    const navigate = useNavigate()
-    const handleSubmit = async (event) => {
-        event.preventDefault()
-        console.log(formData)
-        let response
-        try {
-            response = await axios.post(`${URL}/login`, formData)
-            console.log(response)
-            // Set local storage
-            if (response.data.message === 'Logged in successfully') {
-                // alert('Login success!')
-                toast.success('Login success!')
-                localStorage.setItem('auth', 'true')
-                localStorage.setItem('email', formData.email)
-                navigate('/products')
-            } else {
-                toast.error('Invalid credentials!')
-            }
-        } catch (e) {
-            toast.error('Something went wrong')
-            console.log(e)
-        }
-    }
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         email: '',
         password: '',
-    })
+    });
+
+    const handleChange = (event) => {
+        setFormData({ ...formData, [event.target.name]: event.target.value });
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const response = await axios.post(`${URL}/login`, formData);
+            const { token, message } = response.data;
+
+            // Set local storage and handle token storage
+            if (message === 'Logged in successfully' && token) {
+                localStorage.setItem('authToken', token);
+                localStorage.setItem('auth', 'true');
+                localStorage.setItem('email', formData.email);
+
+                toast.success('Login successful!');
+                navigate('/products');
+            } else {
+                toast.error('Invalid credentials!');
+            }
+        } catch (e) {
+            toast.error('Something went wrong');
+            console.log(e);
+        }
+    };
+
     return (
         <div>
             <Navv />
@@ -70,7 +73,7 @@ const Login = () => {
                                     placeholder="The email you registered with us"
                                     type="email"
                                     value={formData.email}
-                                    onChange={(e) => handleChange(e)}
+                                    onChange={handleChange}
                                 />
                             </FormGroup>
                             <FormGroup>
@@ -81,7 +84,7 @@ const Login = () => {
                                     placeholder="Your password"
                                     type="password"
                                     value={formData.password}
-                                    onChange={(e) => handleChange(e)}
+                                    onChange={handleChange}
                                 />
                             </FormGroup>
                             <Button color="primary">Submit</Button>
@@ -93,7 +96,7 @@ const Login = () => {
                 <Footer />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Login
+export default Login;
