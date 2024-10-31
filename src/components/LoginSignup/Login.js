@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import {
     Form,
     FormGroup,
@@ -18,38 +18,38 @@ import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         email: '',
         password: '',
-    });
+    })
 
     const handleChange = (event) => {
-        setFormData({ ...formData, [event.target.name]: event.target.value });
-    };
+        setFormData({ ...formData, [event.target.name]: event.target.value })
+    }
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
+        event.preventDefault()
 
         try {
-            const response = await axios.post(`${URL}/login`, formData);
-            const { token, message } = response.data;
+            const response = await axios.post(`${URL}/login`, formData)
+            const { token, message } = response.data
 
             if (message === 'Logged in successfully' && token) {
-                localStorage.setItem('authToken', token);
-                localStorage.setItem('auth', 'true');
-                localStorage.setItem('email', formData.email);
+                localStorage.setItem('authToken', token)
+                localStorage.setItem('auth', 'true')
+                localStorage.setItem('email', formData.email)
 
-                toast.success('Login successful!');
-                navigate('/products');
+                toast.success('Login successful!')
+                navigate('/products')
             } else {
-                toast.error('Invalid credentials!');
+                toast.error('Invalid credentials!')
             }
         } catch (e) {
-            toast.error('Something went wrong');
-            console.log(e);
+            toast.error('Something went wrong')
+            console.log(e)
         }
-    };
+    }
 
     return (
         <div>
@@ -95,7 +95,7 @@ const Login = () => {
                 <Footer />
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Login;
+export default Login
