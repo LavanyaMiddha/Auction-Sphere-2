@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import {
     Form,
     FormGroup,
@@ -9,16 +9,16 @@ import {
     CardBody,
     CardText,
     CardHeader,
-} from 'reactstrap';
-import { useNavigate } from 'react-router-dom';
-import Navv from '../Navv';
-import Footer from '../Footer';
-import axios from 'axios';
-import { URL } from '../../global';
-import { toast } from 'react-toastify';
+} from 'reactstrap'
+import { useNavigate } from 'react-router-dom'
+import Navv from '../Navv'
+import Footer from '../Footer'
+import axios from 'axios'
+import { URL } from '../../global'
+import { toast } from 'react-toastify'
 
 const Signup = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
         firstName: '',
@@ -32,11 +32,11 @@ const Signup = () => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
     const handleChange = (event) => {
-        setFormData({ ...formData, [event.target.name]: event.target.value });
-    };
+        setFormData({ ...formData, [event.target.name]: event.target.value })
+    }
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
+        event.preventDefault()
 
         if (formData.password !== formData.confirmPassword) {
             toast.error('Passwords do not match');
@@ -56,11 +56,11 @@ const Signup = () => {
                     navigate('/dashboard');
                 }
             } catch (e) {
-                toast.error('Something went wrong');
-                console.log(e);
+                toast.error('Something went wrong')
+                console.log(e)
             }
         }
-    };
+    }
 
     return (
         <div>
@@ -151,7 +151,7 @@ const Signup = () => {
             )}
             <Footer />
         </div>
-    );
-};
+    )
+}
 
-export default Signup;
+export default Signup
