@@ -8,7 +8,6 @@ import {
     Card,
     CardBody,
     CardText,
-    CardTitle,
     CardHeader,
 } from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
@@ -17,10 +16,6 @@ import Footer from '../Footer';
 import axios from 'axios';
 import { URL } from '../../global';
 import { toast } from 'react-toastify';
-
-/**
- * This component displays the Signup page of our application with added authentication.
- */
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -34,6 +29,8 @@ const Signup = () => {
         confirmPassword: '',
     });
 
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
     const handleChange = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value });
     };
@@ -43,20 +40,18 @@ const Signup = () => {
 
         if (formData.password !== formData.confirmPassword) {
             toast.error('Passwords do not match');
+        } else if (!passwordRegex.test(formData.password)) {
+            toast.error(
+                'Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.'
+            );
         } else {
             try {
-                // Sending a POST request for signup
                 const response = await axios.post(`${URL}/signup`, formData);
-
-                // Extract token from response
                 const { token } = response.data;
-                
-                // Store the token in localStorage and set auth flag
+
                 if (token) {
                     localStorage.setItem('authToken', token);
                     localStorage.setItem('auth', 'true');
-                    
-                    // Notify the user and navigate to dashboard or login
                     toast.success('Signup successful!');
                     navigate('/dashboard');
                 }
