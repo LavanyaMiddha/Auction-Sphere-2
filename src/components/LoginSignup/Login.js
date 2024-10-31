@@ -9,13 +9,13 @@ import {
     CardBody,
     CardHeader,
     CardText,
-} from 'reactstrap';
-import axios from 'axios';
-import Navv from '../Navv';
-import Footer from '../Footer';
-import { URL } from '../../global';
-import { useNavigate, Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+} from 'reactstrap'
+import axios from 'axios'
+import Navv from '../Navv'
+import Footer from '../Footer'
+import { URL } from '../../global'
+import { useNavigate, Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const Login = () => {
     const navigate = useNavigate()
@@ -85,7 +85,10 @@ const Login = () => {
                             </FormGroup>
                             <Button color="primary">Submit</Button>
                         </Form>
-                        <Link to="/forgot-password" style={{ marginTop: '1rem', display: 'block' }}>
+                        <Link
+                            to="/forgot-password"
+                            style={{ marginTop: '1rem', display: 'block' }}
+                        >
                             Forgot Password?
                         </Link>
                     </CardText>
