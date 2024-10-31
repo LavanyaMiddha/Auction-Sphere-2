@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import {
     Form,
     FormGroup,
@@ -10,20 +10,20 @@ import {
     CardText,
     CardTitle,
     CardHeader,
-} from 'reactstrap';
-import { useNavigate } from 'react-router-dom';
-import Navv from '../Navv';
-import Footer from '../Footer';
-import axios from 'axios';
-import { URL } from '../../global';
-import { toast } from 'react-toastify';
+} from 'reactstrap'
+import { useNavigate } from 'react-router-dom'
+import Navv from '../Navv'
+import Footer from '../Footer'
+import axios from 'axios'
+import { URL } from '../../global'
+import { toast } from 'react-toastify'
 
 /**
  * This component displays the Signup page of our application with added authentication.
  */
 
 const Signup = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
         firstName: '',
@@ -32,40 +32,40 @@ const Signup = () => {
         email: '',
         password: '',
         confirmPassword: '',
-    });
+    })
 
     const handleChange = (event) => {
-        setFormData({ ...formData, [event.target.name]: event.target.value });
-    };
+        setFormData({ ...formData, [event.target.name]: event.target.value })
+    }
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
+        event.preventDefault()
 
         if (formData.password !== formData.confirmPassword) {
-            toast.error('Passwords do not match');
+            toast.error('Passwords do not match')
         } else {
             try {
                 // Sending a POST request for signup
-                const response = await axios.post(`${URL}/signup`, formData);
+                const response = await axios.post(`${URL}/signup`, formData)
 
                 // Extract token from response
-                const { token } = response.data;
-                
+                const { token } = response.data
+
                 // Store the token in localStorage and set auth flag
                 if (token) {
-                    localStorage.setItem('authToken', token);
-                    localStorage.setItem('auth', 'true');
-                    
+                    localStorage.setItem('authToken', token)
+                    localStorage.setItem('auth', 'true')
+
                     // Notify the user and navigate to dashboard or login
-                    toast.success('Signup successful!');
-                    navigate('/dashboard');
+                    toast.success('Signup successful!')
+                    navigate('/dashboard')
                 }
             } catch (e) {
-                toast.error('Something went wrong');
-                console.log(e);
+                toast.error('Something went wrong')
+                console.log(e)
             }
         }
-    };
+    }
 
     return (
         <div>
@@ -156,7 +156,7 @@ const Signup = () => {
             )}
             <Footer />
         </div>
-    );
-};
+    )
+}
 
-export default Signup;
+export default Signup
