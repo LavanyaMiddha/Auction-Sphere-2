@@ -1,26 +1,40 @@
-import React, { useState } from 'react';
-import { Form, FormGroup, Label, Input, Button, Card, CardBody, CardHeader, CardText } from 'reactstrap';
-import axios from 'axios';
-import { URL } from '../../global';
-import { toast } from 'react-toastify';
+import React, { useState } from 'react'
+import {
+    Form,
+    FormGroup,
+    Label,
+    Input,
+    Button,
+    Card,
+    CardBody,
+    CardHeader,
+    CardText,
+} from 'reactstrap'
+import axios from 'axios'
+import { URL } from '../../global'
+import { toast } from 'react-toastify'
 
 const ForgotPassword = () => {
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState('')
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
+        event.preventDefault()
         try {
-            const response = await axios.post(`${URL}/forgot-password`, { email });
+            const response = await axios.post(`${URL}/forgot-password`, {
+                email,
+            })
             if (response.data.message === 'Reset link sent') {
-                toast.success('Password reset link has been sent to your email.');
+                toast.success(
+                    'Password reset link has been sent to your email.'
+                )
             } else {
-                toast.error('Email not found.');
+                toast.error('Email not found.')
             }
         } catch (error) {
-            toast.error('Something went wrong.');
-            console.log(error);
+            toast.error('Something went wrong.')
+            console.log(error)
         }
-    };
+    }
 
     return (
         <div>
@@ -48,7 +62,7 @@ const ForgotPassword = () => {
                 </CardBody>
             </Card>
         </div>
-    );
-};
+    )
+}
 
-export default ForgotPassword;
+export default ForgotPassword
