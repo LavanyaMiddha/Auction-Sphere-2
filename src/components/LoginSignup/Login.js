@@ -14,12 +14,9 @@ import axios from 'axios';
 import Navv from '../Navv';
 import Footer from '../Footer';
 import { URL } from '../../global';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-/**
- * This component displays the Login Page with added JWT authentication.
- */
 const Login = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
@@ -38,7 +35,6 @@ const Login = () => {
             const response = await axios.post(`${URL}/login`, formData);
             const { token, message } = response.data;
 
-            // Set local storage and handle token storage
             if (message === 'Logged in successfully' && token) {
                 localStorage.setItem('authToken', token);
                 localStorage.setItem('auth', 'true');
@@ -89,6 +85,9 @@ const Login = () => {
                             </FormGroup>
                             <Button color="primary">Submit</Button>
                         </Form>
+                        <Link to="/forgot-password" style={{ marginTop: '1rem', display: 'block' }}>
+                            Forgot Password?
+                        </Link>
                     </CardText>
                 </CardBody>
             </Card>
