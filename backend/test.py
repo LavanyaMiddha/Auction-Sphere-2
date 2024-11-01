@@ -4,6 +4,11 @@ import pytest
 
 import app
 
+@pytest.fixture
+def client():
+    app.config['TESTING'] = True
+    with app.test_client() as client:
+        yield client
 
 def test_hello_world():
     assert (app.hello_world() == "<p>Hello, World!</p>")
@@ -70,14 +75,13 @@ def test_signup_existing_user(mock_create_connection):
     mock_request_data = {
         "firstName": "John",
         "lastName": "Doe",
-        "email": "existinguser@example.com",
         "contact": "1234567890",
+        "email": "existinguser@example.com",
         "password": "Test@123"
     }
 
-    with patch("app.request.get_json", return_value=mock_request_data):
-        response = app.signup()
-        assert response["message"] == "An account with this email already exists"
+    response = client.post('/signup', json=mock_request_data)
+    assert response["message"] == "An account with this email already exists"
 
 # Test Login Endpoint
 @patch('app.create_connection')
@@ -95,9 +99,8 @@ def test_login_successful(mock_create_connection):
         "password": "Test@123"
     }
 
-    with patch("app.request.get_json", return_value=mock_request_data):
-        response = app.login()
-        assert response.json["message"] == "Logged in successfully"
+    response = client.post('/login', json=mock_request_data)
+    assert response.json["message"] == "Logged in successfully"
 
 
 # Test Forgot Password Endpoint
