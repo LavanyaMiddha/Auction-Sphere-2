@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1730470157559" clover="3.2.0">
+  <project timestamp="1730470157559" name="All files">
+    <metrics statements="180" coveredstatements="82" conditionals="38" coveredconditionals="24" methods="53" coveredmethods="21" elements="271" coveredelements="127" complexity="0" loc="180" ncloc="180" packages="3" files="15" classes="15"/>
+    <package name="src">
+      <metrics statements="13" coveredstatements="1" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="App.js" path="C:\SE_Projects\Auction-Sphere-2\src\App.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="15" count="0" type="stmt"/>
+      </file>
+      <file name="global.js" path="C:\SE_Projects\Auction-Sphere-2\src\global.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="6" type="stmt"/>
+      </file>
+      <file name="index.js" path="C:\SE_Projects\Auction-Sphere-2\src\index.js">
+        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+      </file>
+      <file name="reportWebVitals.js" path="C:\SE_Projects\Auction-Sphere-2\src\reportWebVitals.js">
+        <metrics statements="8" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components">
+      <metrics statements="122" coveredstatements="69" conditionals="28" coveredconditionals="23" methods="36" coveredmethods="19"/>
+      <file name="About.js" path="C:\SE_Projects\Auction-Sphere-2\src\components\About.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+      </file>
+      <file name="AddBid.js" path="C:\SE_Projects\Auction-Sphere-2\src\components\AddBid.js">
+        <metrics statements="20" coveredstatements="14" conditionals="4" coveredconditionals="2" methods="4" coveredmethods="4"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="23" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="41" count="8" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+        <line num="63" count="2" type="stmt"/>
+      </file>
+      <file name="Footer.js" path="C:\SE_Projects\Auction-Sphere-2\src\components\Footer.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="8" count="17" type="stmt"/>
+      </file>
+      <file name="Navv.js" path="C:\SE_Projects\Auction-Sphere-2\src\components\Navv.js">
+        <metrics statements="8" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="1"/>
+        <line num="24" count="45" type="stmt"/>
+        <line num="26" count="45" type="stmt"/>
+        <line num="27" count="45" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="45" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+      </file>
+      <file name="ProductCard.js" path="C:\SE_Projects\Auction-Sphere-2\src\components\ProductCard.js">
+        <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
+        <line num="37" count="4" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="69" count="2" type="stmt"/>
+      </file>
+      <file name="ProductDetails.js" path="C:\SE_Projects\Auction-Sphere-2\src\components\ProductDetails.js">
+        <metrics statements="21" coveredstatements="21" conditionals="14" coveredconditionals="13" methods="5" coveredmethods="5"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="15" type="stmt"/>
+        <line num="24" count="14" type="stmt"/>
+        <line num="25" count="14" type="stmt"/>
+        <line num="26" count="14" type="stmt"/>
+        <line num="27" count="14" type="stmt"/>
+        <line num="28" count="14" type="stmt"/>
+        <line num="29" count="6" type="stmt"/>
+        <line num="30" count="6" type="stmt"/>
+        <line num="33" count="5" type="stmt"/>
+        <line num="34" count="5" type="stmt"/>
+        <line num="35" count="5" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="40" count="14" type="stmt"/>
+        <line num="41" count="6" type="stmt"/>
+        <line num="42" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="43" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="48" count="14" type="stmt"/>
+        <line num="110" count="10" type="stmt"/>
+        <line num="127" count="1" type="stmt"/>
+      </file>
+      <file name="ProductView.js" path="C:\SE_Projects\Auction-Sphere-2\src\components\ProductView.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="Products.js" path="C:\SE_Projects\Auction-Sphere-2\src\components\Products.js">
+        <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+      </file>
+      <file name="Sell.js" path="C:\SE_Projects\Auction-Sphere-2\src\components\Sell.js">
+        <metrics statements="43" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="14" coveredmethods="0"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="117" count="0" type="stmt"/>
+        <line num="128" count="0" type="stmt"/>
+        <line num="139" count="0" type="stmt"/>
+        <line num="150" count="0" type="stmt"/>
+        <line num="161" count="0" type="stmt"/>
+        <line num="169" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.LoginSignup">
+      <metrics statements="45" coveredstatements="12" conditionals="6" coveredconditionals="1" methods="14" coveredmethods="2"/>
+      <file name="Login.js" path="C:\SE_Projects\Auction-Sphere-2\src\components\LoginSignup\Login.js">
+        <metrics statements="22" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="1"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="5" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="29" count="4" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="51" count="4" type="stmt"/>
+        <line num="55" count="4" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+      </file>
+      <file name="Signup.js" path="C:\SE_Projects\Auction-Sphere-2\src\components\LoginSignup\Signup.js">
+        <metrics statements="23" coveredstatements="6" conditionals="4" coveredconditionals="1" methods="9" coveredmethods="1"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="13" type="stmt"/>
+        <line num="27" count="12" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="30" count="12" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="47" count="12" type="stmt"/>
+        <line num="56" count="12" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="110" count="0" type="stmt"/>
+        <line num="123" count="0" type="stmt"/>
+        <line num="136" count="0" type="stmt"/>
+        <line num="162" count="0" type="stmt"/>
+        <line num="177" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

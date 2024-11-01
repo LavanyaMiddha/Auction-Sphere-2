@@ -1,0 +1,58 @@
+.about-content {
+    text-align: center;
+    color: white;
+    display: inline-block;
+}
+
+.about {
+    background-color: rgb(59, 3, 59);
+    width: device-width;
+    position: relative;
+    height: 100%;
+    top: 0px;
+    bottom: 0px;
+    margin-bottom: 0px;
+}
+.img-css {
+    position: absolute;
+    height: 150px;
+    width: 200px;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.buyer {
+    position: absolute;
+    left: 10px;
+    top: 500px;
+    color: black;
+    width: 400px;
+    padding: 10;
+    margin: 10;
+    box-shadow: inset;
+    background-color: green;
+}
+
+.seller {
+    position: absolute;
+    left: 450px;
+    top: 500px;
+    color: black;
+    width: 400px;
+    box-shadow: inset;
+    background-color: #22c1c3;
+}
+
+.about-us {
+    position: absolute;
+    width: 98%;
+    padding: 20px;
+    left: 5px;
+    top: 175px;
+    background: 'linear-gradient(30deg, #020024, #090979,#94bbe9)';
+    color: white;
+    opacity: 0.8;
+    border-radius: 5px;
+}

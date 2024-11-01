@@ -35,7 +35,7 @@ const AddBid = ({ productId, sellerEmail }) => {
             }
         } catch (e) {
             console.log(e)
-            toast.error(e)
+            toast.error('Error placing bid')
         }
     }
     return (

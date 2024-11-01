@@ -52,50 +52,62 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <Navv />
-            <Card body className="mx-auto" style={{ width: '60%' }}>
-                <CardHeader>
-                    <h3>Welcome! Login to continue</h3>
-                </CardHeader>
-                <CardBody>
-                    <CardText>
-                        <Form onSubmit={handleSubmit}>
-                            <FormGroup>
-                                <Label for="Email">Email</Label>
-                                <Input
-                                    id="Email"
-                                    name="email"
-                                    placeholder="The email you registered with us"
-                                    type="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label for="Password">Password</Label>
-                                <Input
-                                    id="Password"
-                                    name="password"
-                                    placeholder="Your password"
-                                    type="password"
-                                    value={formData.password}
-                                    onChange={handleChange}
-                                />
-                            </FormGroup>
-                            <Button color="primary">Submit</Button>
-                        </Form>
-                        <Link
-                            to="/forgot-password"
-                            style={{ marginTop: '1rem', display: 'block' }}
-                        >
-                            Forgot Password?
-                        </Link>
-                    </CardText>
-                </CardBody>
-            </Card>
-            <div style={{ marginTop: '25rem', marginRight: '2rem' }}>
-                <Footer />
+        <div
+            style={{
+                background: 'linear-gradient(30deg, #020024, #090979,#94bbe9)',
+                position: 'fixed',
+                top: 0,
+                right: 0,
+                left: 0,
+                bottom: 0,
+            }}
+        >
+            <div>
+                <Navv />
+                <Card
+                    body
+                    className="mx-auto"
+                    style={{ width: '60%', margin: '10rem' }}
+                >
+                    <CardHeader>
+                        <h3>Welcome! Login to continue</h3>
+                    </CardHeader>
+                    <CardBody>
+                        <CardText>
+                            <Form onSubmit={handleSubmit}>
+                                <FormGroup>
+                                    <Label for="Email">Email</Label>
+                                    <Input
+                                        id="Email"
+                                        name="email"
+                                        placeholder="The email you registered with us"
+                                        type="email"
+                                        value={formData.email}
+                                        onChange={(e) => handleChange(e)}
+                                    />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="Password">Password</Label>
+                                    <Input
+                                        id="Password"
+                                        name="password"
+                                        placeholder="Your password"
+                                        type="password"
+                                        value={formData.password}
+                                        onChange={(e) => handleChange(e)}
+                                    />
+                                </FormGroup>
+                                <Button color="primary">Submit</Button>
+                            </Form>
+                            <Link
+                                to="/forgot-password"
+                                style={{ marginTop: '1rem', display: 'block' }}
+                            >
+                                Forgot Password?
+                            </Link>
+                        </CardText>
+                    </CardBody>
+                </Card>
             </div>
         </div>
     )

@@ -1,0 +1,19 @@
+div.scroll-container {
+    background: linear-gradient(#f1b3ce, #94bbe9);
+    position: absolute;
+    overflow: auto;
+    white-space: nowrap;
+    padding: 3px;
+    width: 98%;
+    scroll-snap-type: none;
+    top: 1000;
+    margin-left: 10;
+}
+
+div.scroll-container img {
+    padding: 10px;
+}
+
+img:hover {
+    opacity: 0.5; /* 50% transparent */
+}

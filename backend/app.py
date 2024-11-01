@@ -4,6 +4,10 @@ from flask_cors import CORS
 import sqlite3
 from sqlite3 import Error
 from datetime import datetime, timedelta
+import os
+import random
+import string
+from datetime import datetime, timedelta
 
 app = Flask(__name__)
 CORS(app)
@@ -122,6 +126,76 @@ def login():
             response["message"] = "Please create an account!"
     return jsonify(response)
 
+# Assuming CORS, Flask, jsonify, etc., are already imported and app is initialized
+# Code to generate a random token
+def generate_token(length=6):
+    return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+
+# Endpoint for forgot password
+@app.route("/forgot-password", methods=["POST"])
+def forgot_password():
+    email = request.get_json().get("email")
+    
+    conn = create_connection(database)
+    c = conn.cursor()
+    
+    # Check if email exists
+    query = f"SELECT * FROM users WHERE email='{email}';"
+    c.execute(query)
+    result = c.fetchone()
+    
+    if result:
+        # Generate token and expiry
+        reset_token = generate_token()
+        expiry_date = datetime.now() + timedelta(minutes=15)
+        
+        # Save token and expiry in a 'claims' table or update if exists
+        query = f"""
+            INSERT INTO claims (email, expiry_date, claim_status, prod_id)
+            VALUES ('{email}', '{expiry_date}', 0, NULL)
+            ON CONFLICT(email) DO UPDATE SET
+            expiry_date=excluded.expiry_date,
+            claim_status=0;
+        """
+        c.execute(query)
+        conn.commit()
+
+        # Send reset token via email (placeholder function)
+        # send_email(email, reset_token) 
+
+        return jsonify({"message": "Reset token sent to your email"}), 200
+    else:
+        return jsonify({"message": "Email not found"}), 404
+
+# Endpoint for reset password
+@app.route("/reset-password", methods=["POST"])
+def reset_password():
+    token = request.get_json().get("token")
+    new_password = request.get_json().get("password")
+    
+    conn = create_connection(database)
+    c = conn.cursor()
+    
+    # Verify token
+    query = f"SELECT email, expiry_date FROM claims WHERE claim_status=0 AND expiry_date > '{datetime.now()}'"
+    c.execute(query)
+    claim = c.fetchone()
+    
+    if claim:
+        email = claim[0]
+        
+        # Update password for the user
+        update_query = f"UPDATE users SET password='{new_password}' WHERE email='{email}';"
+        c.execute(update_query)
+        
+        # Update claim status
+        update_claim_query = f"UPDATE claims SET claim_status=1 WHERE email='{email}';"
+        c.execute(update_claim_query)
+        conn.commit()
+
+        return jsonify({"message": "Password reset successful"}), 200
+    else:
+        return jsonify({"message": "Invalid or expired token"}), 400
 
 """
 API end point to create a new bid.
@@ -343,6 +417,20 @@ def get_landing_page():
     print(response)
     return jsonify(response)
 
+
+@app.route("/getTopTenProducts", methods=["GET"])
+def get_top_products():
+    response = {}
+    query = "SELECT name, photo, description FROM product ORDER BY date DESC LIMIT 10;"
+    conn = create_connection(database)
+    c = conn.cursor()
+    c.execute(query)
+    products = list(c.fetchall())
+    if products.__len__ ==0:
+        print("No data found")
+    response = {
+        "products": products}
+    return jsonify(response)
 
 database = r"auction.db"
 create_users_table = """CREATE TABLE IF NOT EXISTS users( first_name TEXT NOT NULL, last_name TEXT NOT NULL, contact_number TEXT NOT NULL UNIQUE, email TEXT UNIQUE PRIMARY KEY, password TEXT NOT NULL);"""

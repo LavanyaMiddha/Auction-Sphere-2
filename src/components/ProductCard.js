@@ -7,11 +7,6 @@ import {
     CardTitle,
     CardText,
     Button,
-    Row,
-    Col,
-    CardHeader,
-    CardGroup,
-    CardSubtitle,
 } from 'reactstrap'
 import PropTypes from 'prop-types'
 import axios from 'axios'
@@ -44,7 +39,7 @@ const ProductCard = ({ product, maxBid, name }) => {
 
     return (
         <>
-            <Card class="card">
+            <Card className="card">
                 <CardTitle tag="h3" style={{ textAlign: 'center' }}>
                     {product[1]}
                 </CardTitle>
@@ -67,27 +62,6 @@ const ProductCard = ({ product, maxBid, name }) => {
                     </Button>
                 </CardBody>
             </Card>
-
-            {/* <Card className="my-2" style={{ width: '70%' }}>
-                <CardImg
-                    alt="Card image cap"
-                    src={image}
-                    style={{
-                        height: 180,
-                        width: 500,
-                    }}
-                    width="50%"
-                />
-                <CardBody>
-                    <CardTitle tag="h5">{product[1]}</CardTitle>
-                    <CardText>Seller: {product[2]}</CardText>
-                    <CardText>Minimum price: ${product[3]}</CardText>
-                    <CardText>
-                        Current highest bids: ${maxBid === -1 ? 'N/A' : maxBid}
-                    </CardText>
-                    <CardText>Current highest bidder: {name}</CardText>
-                </CardBody>
-            </Card> */}
         </>
     )
 }

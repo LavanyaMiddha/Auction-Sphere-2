@@ -30,25 +30,33 @@ const Products = () => {
 
     return (
         <>
-            <Navv />
-            {/* {products.map((product) => (
-        <ProductCard product={product} />
-      ))} */}
-            <Row>
-                {apiData && apiData.products ? (
-                    apiData.products.map((product, index) => (
-                        <ProductCard
-                            key={index}
-                            product={product}
-                            maxBid={apiData.maximumBids[index]}
-                            name={apiData.names[index]}
-                        />
-                    ))
-                ) : (
-                    <div>No products found</div>
-                )}
-            </Row>
-            <Footer />
+            <div
+                style={{
+                    background:
+                        'linear-gradient(30deg, #020024, #090979,#94bbe9)',
+                    backgroundAttachment: 'scroll',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                }}
+            >
+                <Navv />
+                <Row style={{ margin: '5rem' }}>
+                    {apiData && apiData.products ? (
+                        apiData.products.map((product, index) => (
+                            <ProductCard
+                                key={index}
+                                product={product}
+                                maxBid={apiData.maximumBids[index]}
+                                name={apiData.names[index]}
+                            />
+                        ))
+                    ) : (
+                        <div>No products found</div>
+                    )}
+                </Row>
+                <Footer />
+            </div>
         </>
     )
 }
