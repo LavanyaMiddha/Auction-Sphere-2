@@ -15,7 +15,7 @@ import axios from 'axios'
 import Navv from '../Navv'
 import Footer from '../Footer'
 import { URL } from '../../global'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 /**
@@ -100,6 +100,12 @@ const Login = () => {
                                 </FormGroup>
                                 <Button color="primary">Submit</Button>
                             </Form>
+                            <Link
+                                to="/forgot-password"
+                                style={{ marginTop: '1rem', display: 'block' }}
+                            >
+                                Forgot Password?
+                            </Link>
                         </CardText>
                     </CardBody>
                 </Card>

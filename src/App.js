@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import About from './components/About'
 import Signup from './components/LoginSignup/Signup.js'
 import Login from './components/LoginSignup/Login'
+import ForgotPassword from './components/LoginSignup/ForgotPassword.js'
 import Products from './components/Products'
 import Sell from './components/Sell'
 import ProductDetails from './components/ProductDetails'
@@ -23,6 +24,7 @@ function App() {
                 </Route>
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/sell" element={<Sell />} />
                 <Route path="/details/:id" element={<ProductDetails />} />

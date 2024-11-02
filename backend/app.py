@@ -128,6 +128,41 @@ def login():
             response["message"] = "Please create an account!"
     return jsonify(response)
 
+# Endpoint for forgot password
+@app.route("/forgot-password", methods=["POST"])
+def forgot_password():
+    email = request.get_json().get("email")
+    
+    conn = create_connection(database)
+    c = conn.cursor()
+    
+    # Check if email exists
+    query = f"SELECT * FROM users WHERE email='{email}';"
+    c.execute(query)
+    result = c.fetchone()
+    
+    if result:
+        # Generate token and expiry
+        reset_token = generate_token()
+        expiry_date = datetime.now() + timedelta(minutes=15)
+        
+        # Save token and expiry in a 'claims' table or update if exists
+        query = f"""
+            INSERT INTO claims (email, expiry_date, claim_status, prod_id)
+            VALUES ('{email}', '{expiry_date}', 0, NULL)
+            ON CONFLICT(email) DO UPDATE SET
+            expiry_date=excluded.expiry_date,
+            claim_status=0;
+        """
+        c.execute(query)
+        conn.commit()
+
+        # Send reset token via email (placeholder function)
+        # send_email(email, reset_token) 
+
+        return jsonify({"message": "Reset token sent to your email"}), 200
+    else:
+        return jsonify({"message": "Email not found"}), 404
 
 """ 
 API end point for user profile.
