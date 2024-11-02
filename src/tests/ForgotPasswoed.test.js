@@ -1,7 +1,7 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import ForgotPassword from 'component/LoginSignup/ForgotPassword';
-import { BrowserRouter } from 'react-router-dom';
+import React from 'react'
+import { render, screen, fireEvent } from '@testing-library/react'
+import ForgotPassword from 'component/LoginSignup/ForgotPassword'
+import { BrowserRouter } from 'react-router-dom'
 
 test('renders Forgot Password component', () => {
     render(
